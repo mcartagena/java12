@@ -93,6 +93,9 @@ public abstract class Heap<T extends Comparable> {
     public boolean isFull(){
         return count == array.length;
     }
+    public int longArray(){
+        return count;
+    }
     public T getElementAtIndex(int index){
         return array[index];
     }
