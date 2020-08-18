@@ -12,7 +12,7 @@ public class MinHeap<T extends Comparable> extends Heap<T> {
         minHeap.insert(6);
         minHeap.printHeapArray();
 
-        minHeap.insert(100);
+        minHeap.insert(10);
         minHeap.insert(20);
         minHeap.printHeapArray();
         minHeap.insert(2);
@@ -25,6 +25,11 @@ public class MinHeap<T extends Comparable> extends Heap<T> {
         minHeap.printHeapArray();
         minHeap.removeHighestPriority();
         minHeap.printHeapArray();
+
+        int maxElement = getMaximum(minHeap);
+
+        System.out.println("This the max Element in the minimum Heap: " + maxElement);
+
     }    
     
     public MinHeap(Class<T> clazz){
@@ -75,5 +80,22 @@ public class MinHeap<T extends Comparable> extends Heap<T> {
 
                            siftUp(parentIndex);
                        }
+    }
+
+    public static int getMaximum(MinHeap<Integer> minHeap){
+        int lastIndex = minHeap.getCount() - 1;
+        int lastParentIndex = minHeap.getParentIndex(lastIndex);
+
+        int firstChildIndex = lastParentIndex + 1;
+
+        int maxElement = minHeap.getElementAtIndex(firstChildIndex);
+
+        for (int i = firstChildIndex; i <= lastIndex; i++){
+            if(maxElement < minHeap.getElementAtIndex(i)){
+                maxElement =minHeap.getElementAtIndex(i);
+            }
+        }
+        
+        return maxElement;
     }
 }
