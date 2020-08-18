@@ -2,6 +2,8 @@ package com.mcartagena.datastructure.binaryheap;
 
 public class MinHeap<T extends Comparable> extends Heap<T> {
 
+    public static int[] randomNumberArray = new int[] {2, 5, 6, 21, 67, 88, 4, 1, 3, 9, 99};
+
     public static void main(String[] args) throws HeapFullException, HeapEmptyException {
         MinHeap<Integer> minHeap = new MinHeap<>(Integer.class);
 
@@ -29,6 +31,14 @@ public class MinHeap<T extends Comparable> extends Heap<T> {
         int maxElement = getMaximum(minHeap);
 
         System.out.println("This the max Element in the minimum Heap: " + maxElement);
+
+        printMaximumElements(minHeap);
+
+        minHeap.printHeapArray();
+
+        printMaximumKElements(3);
+        printMaximumKElements(5);
+        printMaximumKElements(6);        
 
     }    
     
@@ -98,4 +108,38 @@ public class MinHeap<T extends Comparable> extends Heap<T> {
         
         return maxElement;
     }
+
+    public static void printMaximumElements(MinHeap<Integer> minHeap) throws HeapEmptyException, HeapFullException{
+        
+        for(int number : randomNumberArray){
+            if(minHeap.isEmpty()){
+                minHeap.insert(number);
+            } else if (!minHeap.isFull() || minHeap.getHighestPriority() < number){
+                if(minHeap.isFull()){
+                    minHeap.removeHighestPriority();
+                }
+                minHeap.insert(number);
+            }
+        }
+
+        return;
+    }
+
+    public static void printMaximumKElements(int k)
+            throws MinHeap.HeapEmptyException, MinHeap.HeapFullException {
+        MinHeap<Integer> minHeap = new MinHeap<>(Integer.class, k);
+
+        for (int number : randomNumberArray) {
+            if (minHeap.isEmpty()) {
+                minHeap.insert(number);
+            } else if (!minHeap.isFull() || minHeap.getHighestPriority() < number) {
+                if (minHeap.isFull()) {
+                    minHeap.removeHighestPriority();
+                }
+                minHeap.insert(number);
+            }
+        }
+
+        minHeap.printHeapArray();
+    }    
 }
