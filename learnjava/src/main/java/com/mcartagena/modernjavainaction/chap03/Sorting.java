@@ -58,6 +58,8 @@ public class Sorting {
         inventory.sort(comparing(Apple::getWeight).reversed());
         System.out.println(inventory);
 
+        
+
 
     }
 
