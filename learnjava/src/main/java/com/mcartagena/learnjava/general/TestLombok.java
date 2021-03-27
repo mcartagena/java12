@@ -13,6 +13,7 @@ public class TestLombok {
         testCustomer1.setEmail("emailWithSet@domain.com");
 
         System.out.println("The first customer: " + testCustomer1);
+        System.out.println("The first customer name: " + testCustomer1.getName());
         System.out.println("The second customer> " + testCustomer2.toString());
         System.out.println("The objects are equals: " + testCustomer1.equals(testCustomer2));
         System.out.println("The hashCode for two customers: " + testCustomer1.hashCode() + " " + testCustomer2.hashCode());
