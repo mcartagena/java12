@@ -1,5 +1,11 @@
+/target
+/local
+/learnjava/target
+/learnjava/local
+
 # Compiled class file
 *.class
+.classpath
 
 # Log file
 *.log
