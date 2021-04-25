@@ -1,4 +1,4 @@
-package com.mcartagena.modernjavainaction.chap06;
+package com.mcartagena.model;
 
 public enum CaloricLevel {
     DIET,

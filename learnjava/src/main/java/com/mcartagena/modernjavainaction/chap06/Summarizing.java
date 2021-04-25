@@ -1,10 +1,12 @@
 package com.mcartagena.modernjavainaction.chap06;
 
+import com.mcartagena.model.Dish;
+
 import java.util.Comparator;
 import java.util.IntSummaryStatistics;
 import java.util.function.BinaryOperator;
 
-import static com.mcartagena.modernjavainaction.chap06.Dish.menu;
+import static com.mcartagena.model.Dish.menu;
 import static java.util.stream.Collectors.*;
 
 public class Summarizing {

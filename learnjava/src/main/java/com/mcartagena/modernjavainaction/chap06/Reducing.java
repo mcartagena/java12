@@ -1,6 +1,8 @@
 package com.mcartagena.modernjavainaction.chap06;
 
-import static com.mcartagena.modernjavainaction.chap06.Dish.menu;
+import com.mcartagena.model.Dish;
+
+import static com.mcartagena.model.Dish.menu;
 import static java.util.stream.Collectors.reducing;
 
 public class Reducing {
@@ -19,7 +21,7 @@ public class Reducing {
     }
 
     public static Integer totalCaloriesInMenu(){
-        return menu.stream().collect(reducing(0,Dish::getCalories,(calories1, calories2) -> calories1 + calories2));
+        return menu.stream().collect(reducing(0, Dish::getCalories,(calories1, calories2) -> calories1 + calories2));
     }
 
     public static Integer calculeTotalCaloriesWithMethodReference(){

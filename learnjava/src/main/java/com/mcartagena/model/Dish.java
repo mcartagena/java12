@@ -1,4 +1,4 @@
-package com.mcartagena.modernjavainaction.chap06;
+package com.mcartagena.model;
 
 import java.util.HashMap;
 import java.util.List;
@@ -11,13 +11,13 @@ public class Dish {
     private final String name;
     private final boolean vegetarian;
     private final int calories;
-    private final Type type;
+    private final TypeOfFood typeOfFood;
 
-    public Dish(String name, boolean vegetarian, int calories, Type type) {
+    public Dish(String name, boolean vegetarian, int calories, TypeOfFood typeOfFood) {
         this.name = name;
         this.vegetarian = vegetarian;
         this.calories = calories;
-        this.type = type;
+        this.typeOfFood = typeOfFood;
     }
 
     public String getName() {
@@ -32,8 +32,8 @@ public class Dish {
         return calories;
     }
 
-    public Type getType() {
-        return type;
+    public TypeOfFood getTypeOfFood() {
+        return typeOfFood;
     }
 
     @Override
@@ -46,15 +46,15 @@ public class Dish {
     }
 
     public static final List<Dish> menu = asList(
-            new Dish("pork", false, 800, Type.MEAT),
-            new Dish("beef", false, 700, Type.MEAT),
-            new Dish("chicken", false, 400, Type.MEAT),
-            new Dish("french fries", true, 530, Type.OTHER),
-            new Dish("rice", true, 350, Type.OTHER),
-            new Dish("season fruit", true, 120, Type.OTHER),
-            new Dish("pizza", true, 550, Type.OTHER),
-            new Dish("prawns", false, 400, Type.FISH),
-            new Dish("salmon", false, 450, Type.FISH)
+            new Dish("pork", false, 800, TypeOfFood.MEAT),
+            new Dish("beef", false, 700, TypeOfFood.MEAT),
+            new Dish("chicken", false, 400, TypeOfFood.MEAT),
+            new Dish("french fries", true, 530, TypeOfFood.OTHER),
+            new Dish("rice", true, 350, TypeOfFood.OTHER),
+            new Dish("season fruit", true, 120, TypeOfFood.OTHER),
+            new Dish("pizza", true, 550, TypeOfFood.OTHER),
+            new Dish("prawns", false, 400, TypeOfFood.FISH),
+            new Dish("salmon", false, 450, TypeOfFood.FISH)
     );
 
     public static final Map<String, List<String>> dishTags = new HashMap<>();

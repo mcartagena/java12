@@ -1,5 +1,7 @@
 package com.mcartagena.modernjavainaction.chap03;
 
+import com.mcartagena.model.Color;
+
 public class Apple {
     
     private int weight = 0;

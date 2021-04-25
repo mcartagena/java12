@@ -1,5 +1,7 @@
 package com.mcartagena.modernjavainaction.chap03;
 
+import com.mcartagena.model.Color;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
