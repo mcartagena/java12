@@ -2,6 +2,8 @@ package com.mcartagena.model;
 
 import lombok.*;
 
+import java.util.Optional;
+
 @AllArgsConstructor
 @NoArgsConstructor
 @EqualsAndHashCode
@@ -11,4 +13,10 @@ import lombok.*;
 public class Car {
     private Brand brand;
     private Color color;
+    private Insurance insurance;
+    private Optional<Insurance> insuranceOptional;
+
+    public Optional<Insurance> getInsuranceAsOptional() {
+        return Optional.ofNullable(insurance);
+    }
 }
