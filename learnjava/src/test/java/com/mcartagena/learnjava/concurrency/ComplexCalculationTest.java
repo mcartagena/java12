@@ -9,7 +9,7 @@ import static org.junit.Assert.assertEquals;
 public class ComplexCalculationTest {
 
     @Test
-    public void shouldcalculateResult() {
+    public void shouldCalculateResult() {
 
         BigInteger complexCalculation = new ComplexCalculation().calculateResult(
                 BigInteger.valueOf(3),
