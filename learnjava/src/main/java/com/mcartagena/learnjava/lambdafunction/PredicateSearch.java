@@ -8,7 +8,25 @@ import java.util.function.Predicate;
 import java.util.function.Supplier;
 
 public class PredicateSearch {
+
+    public static void cualquiera() {
+        System.out.println("cualquiera");
+    }
+
     public static void main(String[] args) {
+
+        PredicateSearch ps = null;
+        ps.cualquiera();
+
+        
+        List<String> cats = new ArrayList<>();
+        cats.add("leo");
+        cats.add("Olivia");
+
+        cats.sort(Comparator.naturalOrder()); // line X
+        System.out.println(cats);
+
+
         List<Animal> animals = new ArrayList<>();
         animals.add(new Animal("fish", false, true));
 
@@ -38,9 +56,8 @@ public class PredicateSearch {
 
         System.out.println(bunnies);
 
-
-
     }
+
 
     private static void print(List<Animal> animals,
                               Predicate<Animal> checker) {
