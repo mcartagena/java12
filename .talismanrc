@@ -1,0 +1,3 @@
+fileignoreconfig:
+- filename: learnjava/src/main/java/com/mcartagena/learnjava/generics_collections/TestMap.java
+  checksum: 4789a2b35cc9f280b6706715e2e5a96f72f4a66549f9bdb0ae91359e32cc363c
