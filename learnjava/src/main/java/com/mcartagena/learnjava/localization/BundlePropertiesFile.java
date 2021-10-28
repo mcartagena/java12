@@ -18,7 +18,8 @@ public class BundlePropertiesFile {
                 .map(k -> k + " : " + rb.getString(k))
                 .forEach(System.out::println);
 
-        ResourceBundle rb1 = ResourceBundle.getBundle("Zoo", us);
+        Locale.setDefault(us);
+        ResourceBundle rb1 = ResourceBundle.getBundle("Zoo");
         System.out.println(MessageFormat.format(rb1.getString("helloByName"), "Sayen", "Leo"));
     }
 
