@@ -4,6 +4,25 @@ import java.util.*;
 
 public class TestCollections {
     public static void main(String[] args) {
+
+        var x = new LinkedList<Integer>();
+        x.offer(18);
+        x.offer(5);
+        x.push(13);
+        System.out.println(x.poll() + " " + x.poll());
+
+        var list = new ArrayList<Integer>();
+        list.add(56);
+        list.add(56);
+        list.add(3);
+        var set = new TreeSet<Integer>(list);
+
+        System.out.print(set.size());
+        System.out.print(" ");
+        System.out.println(set.iterator().next());
+
+        sortAndSearch("seed", "flower");
+
         listExamples();
         setExamples();
 
@@ -13,6 +32,13 @@ public class TestCollections {
 
         mergeExamples();
 
+    }
+
+    private static void sortAndSearch(String... args) {
+        var one = args[0];
+        Arrays.sort(args);
+        int result = Arrays.binarySearch(args, one);
+        System.out.println(result);
     }
 
     private static void mergeExamples() {
