@@ -16,4 +16,13 @@ public class Ghost {
         new Ghost().boo();
         Ghost.boo();
     }
+
+    final void recite(final int chapter){
+        switch (chapter){
+            case 2:
+                System.out.println(9);
+            default:
+                System.out.println(3);
+        }
+    }
 }
