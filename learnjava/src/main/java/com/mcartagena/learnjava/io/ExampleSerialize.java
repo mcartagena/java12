@@ -14,6 +14,7 @@ class Student implements Serializable{
         Student.name = name;
     }
 }
+
 public class ExampleSerialize{
     public static void main(String args[]) throws Exception{
 
