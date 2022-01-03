@@ -82,13 +82,64 @@ public class FileIOExample {
         System.out.println(numbersList);
     }
 
+    // This method uses a DataInputStream to write numbers in a list
+    private static void writeRandomNumberDataStream(String fileName) {
+        List<Integer> numbersList = List.of(0, 1, 2, 3, 4, 5, 6, 7, 8, 9);
+
+        try (var outputStream = new DataOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream(fileName)
+                )
+        )) {
+            numbersList.forEach(s ->
+                    {
+                        try {
+                            outputStream.writeInt(s);
+                            System.out.println("Send to file -> " + s);
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                    }
+            );
+
+        } catch (IOException io) {
+            io.printStackTrace();
+        }
+    }
+
+    // This method uses a DataInputStream to read 2500  numbers
+    private static void readRandomNumbersDataSream(String fileName){
+        List<Integer> numbers = new ArrayList<>();
+
+        try(var inputStream = new DataInputStream(
+                new BufferedInputStream(
+                        new FileInputStream(fileName)
+                )
+        )) {
+            try{
+                while(true){
+                    numbers.add(inputStream.readInt());
+                }
+            } catch (IOException io){
+                io.printStackTrace();
+            }
+
+        } catch (IOException io){
+            io.printStackTrace();
+        }
+
+        System.out.println(numbers);
+    }
+
     public static void main(String[] args) {
         System.out.println("Writing strings to file");
         // writeRandomNumbersToFile("characterData.txt");
         // writeRandomNumbersToFileUsingPrintWriter("characterData.txt");
 
         // readRandomNumbersFromFile("characterData.txt");
-        readRandomNumbersFromFileUsingBufferedReader("characterData.txt");
+        // readRandomNumbersFromFileUsingBufferedReader("characterData.txt");
+        // writeRandomNumberDataStream("binaryIOData.bin");
+        readRandomNumbersDataSream("binaryIOData.bin");
 
     }
 }
