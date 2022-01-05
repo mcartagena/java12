@@ -2,7 +2,7 @@ package com.mcartagena.learnjava.io;
 
 import java.util.Arrays;
 
-public class InsertedSort {
+public class ShellSort {
     public static void main(String[] args) {
         int[] arrayInt = new int[7];
 
@@ -20,21 +20,12 @@ public class InsertedSort {
             arrayInt[index] = Integer.parseInt(arrayStr[index]);
         }
 
-        insertedSort(arrayInt, 1);
+        for(int gap = arrayInt.length/2 ; gap > 0 ; gap/=2){
+//            System.out.println("gap: " + gap);
+            InsertedSort.insertedSort(arrayInt, gap);
+        }
 
         System.out.println("Array sorted: " + Arrays.toString(arrayInt));
-    }
 
-    public static void insertedSort(int[] array, int gap){
-        for(int lastIndexSort = gap; lastIndexSort < array.length; lastIndexSort++){
-            int lastValue = array[lastIndexSort];
-            int index;
-            for(index = lastIndexSort; index >= gap && lastValue < array[index - gap]; index-=gap){
-//                System.out.println("swaping..." + array[index] + " " + array[index - gap]);
-                array[index] = array[index - gap];
-            }
-//            System.out.println("swaping..." + array[index] + " " + lastValue);
-            array[index] = lastValue;
-        }
     }
 }
