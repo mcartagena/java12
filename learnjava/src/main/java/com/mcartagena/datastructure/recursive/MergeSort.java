@@ -23,7 +23,8 @@ public class MergeSort {
 
         System.out.println(Arrays.toString(arrayInt));
 
-        mergeSort(arrayInt, 0, arrayInt.length);
+//        mergeSort(arrayInt, 0, arrayInt.length);
+        mergeSortDescending(arrayInt, 0, arrayInt.length);
 
         System.out.println("Array sorted: ");
         System.out.println(Arrays.toString(arrayInt));
@@ -60,5 +61,36 @@ public class MergeSort {
         System.arraycopy(array, index, array, start + tempIndex, mid - index);  // copying the remaining of the first array
         System.arraycopy(tempArray, 0, array, start, tempIndex);  // copying the sorted temp array
 
+    }
+
+    public static void mergeSortDescending(int[] array, int start, int end) {
+        System.out.println(start + " - " + end);
+        if ((end - start) < 2)
+            return;
+
+        int mid = (start + end) / 2;
+
+        mergeSortDescending(array, start, mid);
+        mergeSortDescending(array, mid, end);
+        mergeDescending(array, start, mid, end);
+    }
+
+    public static void mergeDescending(int[] array, int start, int mid, int end) {
+        if (array[mid - 1] >= array[mid]) {
+            return;
+        }
+
+        int[] tempArray = new int[end - start];
+
+        int index = start;
+        int secondIndex = mid;
+        int tempIndex = 0;
+
+        while (index < mid && secondIndex < end) {
+            tempArray[tempIndex++] = array[index] >= array[secondIndex] ? array[index++] : array[secondIndex++];
+        }
+
+        System.arraycopy(array, index, array, start + tempIndex, mid - index);  // copying the remaining of the first array
+        System.arraycopy(tempArray, 0, array, start, tempIndex);  // copying the sorted temp array
     }
 }
