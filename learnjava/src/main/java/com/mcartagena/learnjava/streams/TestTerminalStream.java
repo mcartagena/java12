@@ -10,9 +10,9 @@ import java.util.stream.Stream;
 
 public class TestTerminalStream {
     public static void main(String[] args) {
-        createExamples();
-
-        terminateExamples();
+//        createExamples();
+//
+//        terminateExamples();
 
         intermediateExamples();
 

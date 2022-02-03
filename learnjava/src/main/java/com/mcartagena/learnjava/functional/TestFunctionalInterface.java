@@ -9,11 +9,11 @@ public class TestFunctionalInterface {
     public static void main(String[] args) {
         supplierExample();
 
-        consumerExamples();
-
-        predicateExamples();
-
-        functionExamples();
+//        consumerExamples();
+//
+//        predicateExamples();
+//
+//        functionExamples();
 
     }
 

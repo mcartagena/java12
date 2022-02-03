@@ -1,4 +1,4 @@
-package com.mcartagena.datastructure.liststructure;
+package com.mcartagena.datastructure.liststructure.singlelinkedlist;
 
 import com.mcartagena.model.Division;
 import com.mcartagena.model.Employee;

@@ -1,4 +1,4 @@
-package com.mcartagena.datastructure.liststructure;
+package com.mcartagena.datastructure.liststructure.singlelinkedlist;
 
 import com.mcartagena.model.Division;
 import com.mcartagena.model.Employee;
@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class TestList {
+public class TestJDKList {
     public static void main(String[] args) {
         List<Employee> employeeList = new ArrayList<>();
 
