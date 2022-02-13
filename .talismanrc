@@ -1,3 +1,5 @@
 fileignoreconfig:
 - filename: learnjava/src/main/java/com/mcartagena/datastructure/arraystructure/RadixSortString.java
   checksum: c2814540dac36896379c36ff9eab77f17f2c8ada2f840acba2a378e9cf12cc55
+- filename: learnjava/src/main/java/com/mcartagena/learnjava/streams/Goat.java
+  checksum: a898edc6fa066fb1db1d7dc446bdef2630f63d3dec5b73f50730703c76480a40
