@@ -1,5 +1,6 @@
 package com.mcartagena.learnjava.datetime;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
@@ -19,6 +20,12 @@ public class TestDateTime {
 
         dtf = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.LONG);
         System.out.println(dtf.format(zdt));
+
+        var x = LocalDate.of(2022, 3, 1);
+        var y = LocalDateTime.of(2022, 3, 1, 5, 55);
+//        var f2 = DateTimeFormatter.ofPattern("MMMM' at 'h' o'clock'");
+        var f2 = DateTimeFormatter.ofPattern("MMMM' at 'h' o''clock'");
+        System.out.print(f2.format(y));
 
     }
 }

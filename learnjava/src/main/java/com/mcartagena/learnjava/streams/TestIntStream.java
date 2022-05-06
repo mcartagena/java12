@@ -2,13 +2,15 @@ package com.mcartagena.learnjava.streams;
 
 import java.util.ArrayList;
 import java.util.OptionalDouble;
-import java.util.stream.DoubleStream;
-import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-import java.util.stream.Stream;
+import java.util.stream.*;
 
 public class TestIntStream {
     public static void main(String[] args) {
+//        creatingIntStream();
+        collectingResults();
+    }
+
+    private static void creatingIntStream() {
         IntStream count = IntStream.iterate(1, n -> n + 1)
                 .limit(5);
 
@@ -45,6 +47,22 @@ public class TestIntStream {
         optional.ifPresent(System.out::println);
         System.out.println(optional.getAsDouble());
         System.out.println(optional.orElseGet(() -> Double.NaN));
+    }
 
+    private static void collectingResults() {
+        IntStream count = IntStream.iterate(1, n -> n + 1)
+                .limit(5);
+
+        System.out.println(count.count());
+
+//        System.out.println(count.summaryStatistics().getAverage());
+
+        Stream<String> str = Stream.of("1", "2", "3", "4", "5");
+
+//        System.out.println(str.collect(Collectors.averagingInt(num -> Integer.parseInt(num))));
+
+//        System.out.println(str.collect(Collectors.averagingLong(num -> Long.parseLong(num))));
+
+        System.out.println(str.collect(Collectors.counting()));
     }
 }
