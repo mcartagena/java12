@@ -31,6 +31,11 @@ public class AdjacencySetGraph implements Graph{
     }
 
     @Override
+    public void addEdge(int v1, int v2, int weight) {
+        throw new IllegalArgumentException("Weight not implemented in Adjacency Set");
+    }
+
+    @Override
     public List<Integer> getAdjacentVertices(int v) {
         if (v >= numVertices || v < 0) {
             throw new IllegalArgumentException("Vertex number is not valid: " + v);
@@ -40,7 +45,13 @@ public class AdjacencySetGraph implements Graph{
     }
 
     @Override
+    public int getWeightedEdge(int v1, int v2) {
+        throw new IllegalArgumentException("Weight not implemented in Adjacency Set");
+    }
+
+    @Override
     public int getnumVertices() {
         return numVertices;
     }
+
 }

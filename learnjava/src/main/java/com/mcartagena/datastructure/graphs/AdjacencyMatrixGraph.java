@@ -37,6 +37,17 @@ public class AdjacencyMatrixGraph implements Graph {
     }
 
     @Override
+    public void addEdge(int v1, int v2, int weight) {
+        if (v1 >= numVertices || v2 >= numVertices || v1 < 0 || v2 < 0) {
+            throw new  IllegalArgumentException("Vertex number is not valid");
+        }
+        adjacencyMatrix[v1][v2] = weight;
+        if(graphType == GraphType.UNDIRECTED) {
+            adjacencyMatrix[v2][v1] = weight;
+        }
+    }
+
+    @Override
     public List<Integer> getAdjacentVertices(int v) {
         if (v >= numVertices || v < 0) {
             throw new IllegalArgumentException("Vertex number is not valid");
@@ -45,7 +56,7 @@ public class AdjacencyMatrixGraph implements Graph {
         List<Integer> adjacentVerticesList = new ArrayList<>();
 
         for (int i = 0; i < numVertices; i++) {
-            if (adjacencyMatrix[v][i] == 1) {
+            if (adjacencyMatrix[v][i] != 0) {
                 adjacentVerticesList.add(i);
             }
         }
@@ -54,6 +65,11 @@ public class AdjacencyMatrixGraph implements Graph {
         Collections.sort(adjacentVerticesList);
 
         return adjacentVerticesList;
+    }
+
+    @Override
+    public int getWeightedEdge(int v1, int v2) {
+        return adjacencyMatrix[v1][v2];
     }
 
     @Override

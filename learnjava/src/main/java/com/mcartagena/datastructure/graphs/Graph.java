@@ -11,7 +11,11 @@ public interface Graph {
 
     void addEdge(int v1, int v2);
 
+    void addEdge(int v1, int v2, int weight);
+
     List<Integer> getAdjacentVertices(int v);
+
+    int getWeightedEdge(int v1, int v2);
 
     int getnumVertices();
 
