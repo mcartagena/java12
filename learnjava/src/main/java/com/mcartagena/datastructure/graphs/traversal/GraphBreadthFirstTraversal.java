@@ -28,6 +28,7 @@ public class GraphBreadthFirstTraversal {
         // graph.
         for (int i = 0; i < N; i++) {
             breadthFirstTraversal(graph, visited, i);
+            System.out.println("\n********");
         }
 
     }

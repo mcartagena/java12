@@ -22,13 +22,14 @@ public class GraphDepthFirstTraversal {
         graph.addEdge(6, 3);
         graph.addEdge(3, 4);
 
-        int[] visited = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+//        int[] visited = new int[]{0, 0, 0, 0, 0, 0, 0, 0};
+        int[] visited = new int[N];
 
         // this for-loop ensures that all nodes are connected even for an unconnected graph
         for (int i = 0; i < N; i++) {
             depthFirstTraversal(graph, visited, i);
+            System.out.println("\n********");
         }
-
 
     }
 
