@@ -3,6 +3,7 @@ package com.mcartagena.datastructure.graphs.traversal;
 import com.mcartagena.datastructure.graphs.AdjacencyMatrixGraph;
 import com.mcartagena.datastructure.graphs.Graph;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class GraphDepthFirstTraversal {
@@ -28,8 +29,21 @@ public class GraphDepthFirstTraversal {
         // this for-loop ensures that all nodes are connected even for an unconnected graph
         for (int i = 0; i < N; i++) {
             depthFirstTraversal(graph, visited, i);
-            System.out.println("\n********");
         }
+
+        visited = new int[N];
+
+        List<Integer> totalNodes = new ArrayList<>();
+        for (int i = 0; i < N; i++) {
+            int resultNodes = depthFirstSearch(graph, visited, i);
+            if (resultNodes != 0) {
+                totalNodes.add(resultNodes);
+            }
+        }
+
+        System.out.println("\nTotal nodes: ");
+        totalNodes.forEach(System.out::println);
+
 
     }
 
@@ -49,4 +63,25 @@ public class GraphDepthFirstTraversal {
         System.out.print(currentVertex + "->");
 
     }
+
+    // objective return number of edges connected
+    public static int depthFirstSearch(Graph graph, int[] visited, int currentVertex) {
+
+        if (visited[currentVertex] == 1) {
+            return 0;
+        }
+
+        visited[currentVertex] = 1;
+        int nodes = 1;
+
+        List<Integer> list = graph.getAdjacentVertices(currentVertex);
+
+        for (int vertex : list) {
+            nodes += depthFirstSearch(graph, visited, vertex);
+        }
+
+
+        return nodes;
+    }
+
 }

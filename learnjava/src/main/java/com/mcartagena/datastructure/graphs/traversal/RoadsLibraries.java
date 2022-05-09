@@ -110,7 +110,7 @@ public class RoadsLibraries {
                     }
                 });
 
-                long result = Result.roadsAndLibraries(n, c_lib, c_road, cities);
+                long result = ResultWithSet.roadsAndLibraries(n, c_lib, c_road, cities);
 
                 bufferedWriter.write(String.valueOf(result));
                 bufferedWriter.newLine();
