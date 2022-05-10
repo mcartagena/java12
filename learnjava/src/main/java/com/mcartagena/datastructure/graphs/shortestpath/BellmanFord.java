@@ -84,8 +84,8 @@ public class BellmanFord {
             while (!queue.isEmpty()) {
                 int currentVertex = queue.poll();
 
-                for (int neighbor : graph.getAdjacentVertices(currentVertex)) {
-                    String edge = String.valueOf(currentVertex) + String.valueOf(neighbor);
+                for (List<Integer> neighbor : graph.getAdjacentVertices(currentVertex)) {
+                    String edge = String.valueOf(currentVertex) + String.valueOf(neighbor.get(0));
 
                     // Do not visit edges more than once in each iteration
                     if (visitedEdges.contains(edge)) {
@@ -95,13 +95,13 @@ public class BellmanFord {
                     visitedEdges.add(edge);
 
                     int distance = distanceTable.get(currentVertex).getDistance()
-                            + graph.getWeightedEdge(currentVertex, neighbor);
+                            + graph.getWeightedEdge(currentVertex, neighbor.get(0));
 
                     // if we find a new shortest path to the neightbor update
                     // the distance and the last vertex
-                    if (distanceTable.get(neighbor).getDistance() > distance) {
-                        distanceTable.get(neighbor).setDistance(distance);
-                        distanceTable.get(neighbor).setLastVertex(currentVertex);
+                    if (distanceTable.get(neighbor.get(0)).getDistance() > distance) {
+                        distanceTable.get(neighbor.get(0)).setDistance(distance);
+                        distanceTable.get(neighbor.get(0)).setLastVertex(currentVertex);
                     }
                 }
             }
@@ -118,11 +118,11 @@ public class BellmanFord {
         while (!queue.isEmpty()) {
             int currentVertex = queue.poll();
 
-            for (int neighbor : graph.getAdjacentVertices(currentVertex)) {
+            for (List<Integer> neighbor : graph.getAdjacentVertices(currentVertex)) {
                 int distance = distanceTable.get(currentVertex).getDistance()
-                        + graph.getWeightedEdge(currentVertex, neighbor);
+                        + graph.getWeightedEdge(currentVertex, neighbor.get(0));
 
-                if (distanceTable.get(neighbor).getDistance() > distance) {
+                if (distanceTable.get(neighbor.get(0)).getDistance() > distance) {
                     throw new IllegalArgumentException("The graph has a -ve cycle");
                 }
             }

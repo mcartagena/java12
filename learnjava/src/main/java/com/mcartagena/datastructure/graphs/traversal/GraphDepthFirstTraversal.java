@@ -54,10 +54,10 @@ public class GraphDepthFirstTraversal {
 
         visited[currentVertex] = 1;
 
-        List<Integer> list = graph.getAdjacentVertices(currentVertex);
+        List<List<Integer>> list = graph.getAdjacentVertices(currentVertex);
 
-        for (int vertex : list) {
-            depthFirstTraversal(graph, visited, vertex);
+        for (List<Integer> vertex : list) {
+            depthFirstTraversal(graph, visited, vertex.get(0));
         }
 
         System.out.print(currentVertex + "->");
@@ -74,12 +74,11 @@ public class GraphDepthFirstTraversal {
         visited[currentVertex] = 1;
         int nodes = 1;
 
-        List<Integer> list = graph.getAdjacentVertices(currentVertex);
+        List<List<Integer>> list = graph.getAdjacentVertices(currentVertex);
 
-        for (int vertex : list) {
-            nodes += depthFirstSearch(graph, visited, vertex);
+        for (List<Integer> vertex : list) {
+            nodes += depthFirstSearch(graph, visited, vertex.get(0));
         }
-
 
         return nodes;
     }

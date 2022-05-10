@@ -48,10 +48,10 @@ public class GraphBreadthFirstTraversal {
             System.out.print(vertex + "->");
             visited[vertex] = 1;
 
-            List<Integer> list = graph.getAdjacentVertices(vertex);
-            for (int v : list) {
-                if (visited[v] != 1) {
-                    queue.offer(v);
+            List<List<Integer>> list = graph.getAdjacentVertices(vertex);
+            for (List<Integer> v : list) {
+                if (visited[v.get(0)] != 1) {
+                    queue.offer(v.get(0));
                 }
             }
         }

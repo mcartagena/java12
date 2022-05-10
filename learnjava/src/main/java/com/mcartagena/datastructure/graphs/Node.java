@@ -4,7 +4,7 @@ import java.util.*;
 
 public class Node {
     private int vertexNumber;
-    private Set<Integer> adjacencySet = new HashSet<>();
+    private List<List<Integer>> adjacencyList = new ArrayList<>();
 
     public Node(int vertexNumber){
         this.vertexNumber = vertexNumber;
@@ -14,15 +14,17 @@ public class Node {
         return vertexNumber;
     }
 
-    public void addEdge(int vertexNumber){
-        adjacencySet.add(vertexNumber);
+    public void addEdge(int vertexNumber, int weight){
+        List<Integer> adjacencyNode = new ArrayList<>();
+
+        adjacencyNode.add(vertexNumber);
+        adjacencyNode.add(weight);
+
+        adjacencyList.add(adjacencyNode);
+
     }
 
-    public List<Integer> getAdjacentVertices() {
-        List<Integer> sortedList = new ArrayList<>(adjacencySet);
-
-        Collections.sort(sortedList);
-
-        return sortedList;
+    public List<List<Integer>> getAdjacentVertices() {
+        return adjacencyList;
     }
 }

@@ -79,9 +79,9 @@ public class Dijkstra {
             VertexInfo vertexInfo = queue.poll();
             int currentVertex = vertexInfo.getVertexId();
 
-            for (int neighbor : graph.getAdjacentVertices(currentVertex)) {
+            for (List<Integer> neighbor : graph.getAdjacentVertices(currentVertex)) {
 
-                int distance = distanceTable.get(currentVertex).getDistance() + graph.getWeightedEdge(currentVertex, neighbor);
+                int distance = distanceTable.get(currentVertex).getDistance() + graph.getWeightedEdge(currentVertex, neighbor.get(0));
 
                 if (distanceTable.get(neighbor).getDistance() > distance) {
                     distanceTable.get(neighbor).setDistance(distance);
@@ -92,9 +92,9 @@ public class Dijkstra {
                         queue.remove(neighborVertexInfo);
                     }
 
-                    neighborVertexInfo = new VertexInfo(neighbor, distance);
+                    neighborVertexInfo = new VertexInfo(neighbor.get(0), distance);
                     queue.offer(neighborVertexInfo);
-                    vertexInfoMap.put(neighbor, neighborVertexInfo);
+                    vertexInfoMap.put(neighbor.get(0), neighborVertexInfo);
                 }
 
             }

@@ -1,7 +1,6 @@
 package com.mcartagena.datastructure.graphs;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 public class AdjacencyMatrixGraph implements Graph {
@@ -48,21 +47,22 @@ public class AdjacencyMatrixGraph implements Graph {
     }
 
     @Override
-    public List<Integer> getAdjacentVertices(int v) {
+    public List<List<Integer>> getAdjacentVertices(int v) {
         if (v >= numVertices || v < 0) {
             throw new IllegalArgumentException("Vertex number is not valid");
         }
 
-        List<Integer> adjacentVerticesList = new ArrayList<>();
+        List<List<Integer>> adjacentVerticesList = new ArrayList<>();
 
         for (int i = 0; i < numVertices; i++) {
             if (adjacencyMatrix[v][i] != 0) {
-                adjacentVerticesList.add(i);
+                List<Integer> adjacentVerticeList = new ArrayList<>();
+                adjacentVerticeList.add(i);  // node
+                adjacentVerticeList.add(adjacencyMatrix[v][i]);  // weight
+
+                adjacentVerticesList.add(adjacentVerticeList);
             }
         }
-
-        //Always return the vertices in ascending order.
-        Collections.sort(adjacentVerticesList);
 
         return adjacentVerticesList;
     }

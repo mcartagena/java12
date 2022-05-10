@@ -39,18 +39,18 @@ public class ShortestPathUnweighted {
         while (!queueNeighbors.isEmpty()) {
             int currentVertex = queueNeighbors.poll();
 
-            for (int i : graph.getAdjacentVertices(currentVertex)) {
-                int currentDistance = distanceTable.get(i).getDistance();
+            for (List<Integer> i : graph.getAdjacentVertices(currentVertex)) {
+                int currentDistance = distanceTable.get(i.get(0)).getDistance();
 
                 if (currentDistance == -1) {
                     currentDistance = 1 + distanceTable.get(currentVertex).getDistance();
 
-                    distanceTable.get(i).setDistance(currentDistance);
-                    distanceTable.get(i).setLastVertex(currentVertex);
+                    distanceTable.get(i.get(0)).setDistance(currentDistance);
+                    distanceTable.get(i.get(0)).setLastVertex(currentVertex);
 
                     // Enqueue the neighbor only if it has other adjacent vertices.
-                    if (!graph.getAdjacentVertices(i).isEmpty()) {
-                        queueNeighbors.offer(i);
+                    if (!graph.getAdjacentVertices(i.get(0)).isEmpty()) {
+                        queueNeighbors.offer(i.get(0));
                     }
                 }
 
