@@ -17,6 +17,8 @@ public interface Graph {
 
     int getWeightedEdge(int v1, int v2);
 
-    int getnumVertices();
+    int getNumVertices();
+
+    int getIndegree(int v);
 
 }

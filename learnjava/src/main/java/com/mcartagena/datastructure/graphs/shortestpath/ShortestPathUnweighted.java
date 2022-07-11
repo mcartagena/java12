@@ -25,7 +25,7 @@ public class ShortestPathUnweighted {
     private static Map<Integer, DistanceInfo> buildDistanceTable(Graph graph, int source) {
         Map<Integer, DistanceInfo> distanceTable = new HashMap<>();
 
-        for (int i = 0; i < graph.getnumVertices(); i++) {
+        for (int i = 0; i < graph.getNumVertices(); i++) {
             distanceTable.put(i, new DistanceInfo());
         }
 

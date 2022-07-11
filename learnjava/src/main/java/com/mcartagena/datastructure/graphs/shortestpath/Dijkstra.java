@@ -63,7 +63,7 @@ public class Dijkstra {
 
         Map<Integer, VertexInfo> vertexInfoMap = new HashMap<>();
 
-        for (int i = 0; i < graph.getnumVertices(); i++) {
+        for (int i = 0; i < graph.getNumVertices(); i++) {
             distanceTable.put(i, new DistanceInfo());
         }
 

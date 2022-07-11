@@ -59,7 +59,7 @@ public class BellmanFord {
     public static Map<Integer, DistanceInfo> buildDistanceTable(Graph graph, int source) {
         Map<Integer, DistanceInfo> distanceTable = new HashMap<>();
 
-        for (int j = 0; j < graph.getnumVertices(); j++) {
+        for (int j = 0; j < graph.getNumVertices(); j++) {
             distanceTable.put(j, new DistanceInfo());
         }
 
@@ -70,10 +70,10 @@ public class BellmanFord {
         Queue<Integer> queue = new LinkedList<>();
 
         // Relaxing (processing) all the edges numVertices -1 times
-        for (int numIterations = 0; numIterations < graph.getnumVertices() - 1; numIterations++) {
+        for (int numIterations = 0; numIterations < graph.getNumVertices() - 1; numIterations++) {
             // Add every vertex to the queue so we're sure to access all the edges
             // in the graph
-            for (int v = 0; v < graph.getnumVertices(); v++) {
+            for (int v = 0; v < graph.getNumVertices(); v++) {
                 queue.offer(v);
             }
 
@@ -109,7 +109,7 @@ public class BellmanFord {
 
         // Add all the vertices to the queue one last time to check for
         // a negative cycle
-        for (int v = 0; v < graph.getnumVertices(); v++) {
+        for (int v = 0; v < graph.getNumVertices(); v++) {
             queue.offer(v);
         }
 
