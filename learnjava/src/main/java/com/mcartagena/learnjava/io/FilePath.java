@@ -16,7 +16,7 @@ public class FilePath {
 
     public static void main(String[] args) throws IOException {
 
-//        joiningFilePaths();
+        joiningFilePaths();
 
         // Path for directory
 //        getPathForDirectory();
@@ -24,7 +24,7 @@ public class FilePath {
         // Path for file
 //        getPathForFile();
 
-        compareFilePaths();
+//        compareFilePaths();
 
     }
 
